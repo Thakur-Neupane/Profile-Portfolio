@@ -9,10 +9,10 @@ function ProfilePictureUpDown() {
 
   return (
     <div className="p-10 relative max-sm:p-2">
-      <div className="relative w-72 h-72 rounded-full bg-slate-900 overflow-hidden flex items-center justify-center">
+      <div className="relative w-80 h-80 rounded-full bg-slate-900 overflow-hidden flex items-center justify-center shadow-lg">
         <img
           className="absolute inset-0 w-full h-full object-cover"
-          src={hero} // Replace with your hero image URL
+          src={hero}
           alt="Hero"
         />
         <FloatingAnimation
@@ -20,9 +20,9 @@ function ProfilePictureUpDown() {
           yValues={[0, -5, 0, 5, 0]}
           delay={0.5}
           children={
-            <div className="profilePTag rounded-full bg-opacity-70 w-72 h-72 hover:shadow-md hover:shadow-[#06092e41] duration-500">
+            <div className="profilePTag rounded-full  w-80 h-80 hover:shadow-md hover:shadow-[#06092e41] duration-500">
               <img
-                className="brightness-110 contrast-125 object-cover object-center w-full h-full"
+                className="brightness-100 contrast-100 object-cover object-center w-full h-full"
                 src={hero}
                 alt="Thakur"
               />

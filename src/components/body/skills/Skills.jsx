@@ -1,4 +1,9 @@
 import React from "react";
+import {
+  useAnimatedLetters,
+  AnimatedLetters,
+} from "../../animation/AnimatedLetter";
+import "../body.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import {
@@ -12,6 +17,7 @@ import {
   FaBootstrap,
   FaGitAlt,
 } from "react-icons/fa";
+
 import {
   SiExpress,
   SiRedux,
@@ -22,97 +28,154 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
+
 import { DiMsqlServer } from "react-icons/di";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { VscDebugAlt } from "react-icons/vsc";
-import {
-  AnimatedLetters,
-  useAnimatedLetters,
-} from "../../animation/AnimatedLetter"; // Ensure this hook is available
 
-const Skills = () => {
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 6,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 5,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 3,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 2,
+  },
+};
+
+function Skills() {
   const { letterClass, isHovering, handleMouseEnter, handleMouseLeave } =
     useAnimatedLetters();
-  const skillsTitle = ["M", "y", " ", "S", "k", "i", "l", "l", "s"];
-
-  const skills = [
-    { icon: <FaHtml5 />, label: "HTML 5", color: "text-orange-500" },
-    { icon: <FaCss3 />, label: "CSS 3", color: "text-blue-500" },
-    { icon: <FaJs />, label: "JavaScript", color: "text-yellow-500" },
-    {
-      icon: <RiTailwindCssFill />,
-      label: "Tailwind CSS",
-      color: "text-teal-500",
-    },
-    { icon: <FaBootstrap />, label: "Bootstrap", color: "text-indigo-600" },
-    { icon: <FaReact />, label: "React", color: "text-blue-400" },
-    { icon: <SiRedux />, label: "Redux", color: "text-purple-600" },
-    { icon: <SiTypescript />, label: "TypeScript", color: "text-blue-600" },
-    { icon: <FaGitAlt />, label: "Git", color: "text-red-600" },
-    { icon: <SiNextdotjs />, label: "Next.js", color: "text-white" },
-    { icon: <VscDebugAlt />, label: "Debugging", color: "text-green-600" },
-    { icon: <SiFramer />, label: "Framer Motion", color: "text-pink-500" },
-    { icon: <SiStripe />, label: "Stripe Payment", color: "text-blue-500" },
-    { icon: <DiMsqlServer />, label: "MS SQL Server", color: "text-red-500" },
-    { icon: <FaJava />, label: "Java", color: "text-red-600" },
-    { icon: <FaPython />, label: "Python", color: "text-blue-400" },
-    { icon: <BiLogoPostgresql />, label: "PostgreSQL", color: "text-blue-600" },
-    { icon: <SiMongodb />, label: "MongoDB", color: "text-green-600" },
-    { icon: <SiExpress />, label: "Express", color: "text-gray-600" },
-    { icon: <FaNode />, label: "Node", color: "text-green-500" },
-  ];
+  const skills = ["S", "k", "i", "l", "l", "s"];
 
   return (
-    <section className="bg-[#121212] pt-[4rem] md:pt-[8rem] pb-[5rem] skill">
-      <div className="container mx-auto">
-        <div className="flex flex-col items-center gap-4">
-          <div
-            id="skills"
-            className="flex flex-col max-w-7xl h-full mx-auto py-20 px-8"
-          >
-            <div className="flex flex-col items-center gap-4">
-              <h1 className="heading">
-                <AnimatedLetters
-                  letterClass={letterClass}
-                  strArray={skillsTitle}
-                  idx={5}
-                  isHovering={isHovering}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                />
-              </h1>
-              <p className="text-gray-400 text-lg md:text-xl">
-                Using the latest tech this world has to offer
-              </p>
-            </div>
-            <div className="marquee border-2 border-white rounded-lg p-4 bg-transparent">
-              <div className="marquee-content">
-                {skills.map(({ icon, label, color }, index) => (
-                  <div
-                    key={index}
-                    className={`flex flex-col items-center mx-4`}
-                  >
-                    <div className={`text-4xl ${color}`}>{icon}</div>
-                    <h5 className={`text-lg mt-2 ${color}`}>{label}</h5>
-                  </div>
-                ))}
-                {/* Repeat skills for continuous effect */}
-                {skills.map(({ icon, label, color }, index) => (
-                  <div
-                    key={`repeat-${index}`}
-                    className={`flex flex-col items-center mx-4`}
-                  >
-                    <div className={`text-4xl ${color}`}>{icon}</div>
-                    <h5 className={`text-lg mt-2 ${color}`}>{label}</h5>
-                  </div>
-                ))}
+    <>
+      <div data-aos="fade-right" className="mb-10">
+        <h1 className="font-semibold text-3xl text-white opacity-90 relative inline-block">
+          <AnimatedLetters
+            letterClass={letterClass}
+            strArray={skills}
+            idx={5}
+            isHovering={isHovering}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
+          <div data-aos="fade-right" className="h-0.5 bg-blue-500"></div>
+        </h1>
+        <h3 data-aos="fade-right" className="text-white opacity-90">
+          //This is the TECHNOLOGY I've worked with 🧑‍💻
+        </h3>
+      </div>
+      <section className=" pt-[2rem] md:pt-[2rem] pb-[2rem] skill">
+        <div className="container mx-auto">
+          <div className="border-2 border-white rounded-lg p-4 bg-transparent">
+            <Carousel
+              additionalTransfrom={0}
+              arrows={false}
+              autoPlay={true}
+              autoPlaySpeed={500} // Adjust speed as needed
+              centerMode={false}
+              infinite
+              responsive={responsive}
+              slidesToSlide={1} // Move one item at a time
+              itemClass="px-2" // Adjust padding between items
+              className="flex"
+            >
+              <div className="flex flex-col items-center">
+                <FaHtml5 className="text-4xl text-orange-500" />
+                <h5 className="text-lg mt-2 text-orange-500">HTML 5</h5>
               </div>
-            </div>
+              <div className="flex flex-col items-center">
+                <FaCss3 className="text-4xl text-blue-500" />
+                <h5 className="text-lg mt-2 text-blue-500">CSS 3</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <FaJs className="text-4xl text-yellow-500" />
+                <h5 className="text-lg mt-2 text-yellow-500">JavaScript</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <RiTailwindCssFill className="text-4xl text-teal-500" />
+                <h5 className="text-lg mt-2 text-teal-500">Tailwind CSS</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <FaBootstrap className="text-4xl text-indigo-600" />
+                <h5 className="text-lg mt-2 text-indigo-600">Bootstrap</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <FaReact className="text-4xl text-blue-400" />
+                <h5 className="text-lg mt-2 text-blue-400">React</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <SiRedux className="text-4xl text-purple-600" />
+                <h5 className="text-lg mt-2 text-purple-600">Redux</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <SiTypescript className="text-4xl text-blue-600" />
+                <h5 className="text-lg mt-2 text-blue-600">TypeScript</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <FaGitAlt className="text-4xl text-red-600" />
+                <h5 className="text-lg mt-2 text-red-600">Git</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <SiNextdotjs className="text-4xl text-white" />
+                <h5 className="text-lg mt-2 text-white">Next.js</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <VscDebugAlt className="text-4xl text-green-600" />
+                <h5 className="text-lg mt-2 text-green-600">Debugging</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <SiFramer className="text-4xl text-pink-500" />
+                <h5 className="text-lg mt-2 text-pink-500">Framer Motion</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <SiStripe className="text-4xl text-blue-500" />
+                <h5 className="text-lg mt-2 text-blue-500">Stripe Payment</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <DiMsqlServer className="text-4xl text-red-500" />
+                <h5 className="text-lg mt-2 text-red-500">MS SQL Server</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <FaJava className="text-4xl text-red-600" />
+                <h5 className="text-lg mt-2 text-red-600">Java</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <FaPython className="text-4xl text-blue-400" />
+                <h5 className="text-lg mt-2 text-blue-400">Python</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <BiLogoPostgresql className="text-4xl text-blue-600" />
+                <h5 className="text-lg mt-2 text-blue-600">PostgreSQL</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <SiMongodb className="text-4xl text-green-600" />
+                <h5 className="text-lg mt-2 text-green-600">MongoDB</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <SiExpress className="text-4xl text-gray-600" />
+                <h5 className="text-lg mt-2 text-gray-600">Express</h5>
+              </div>
+              <div className="flex flex-col items-center">
+                <FaNode className="text-4xl text-green-500" />
+                <h5 className="text-lg mt-2 text-green-500">Node</h5>
+              </div>
+            </Carousel>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
-};
+}
 
 export default Skills;

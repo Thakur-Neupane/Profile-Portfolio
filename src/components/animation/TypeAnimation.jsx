@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const TypeAnimation = () => {
   const [text, setText] = useState("");
-  const words = ["Like Coding.", "love web development."];
+  const words = ["Like Coding.", "Enjoy building apps.", "Value clean code."];
   const delay = 100;
 
   useEffect(() => {
@@ -36,9 +36,10 @@ const TypeAnimation = () => {
 
   return (
     <div className="h-8">
-      <h2 className="relative text-blue-500 font-semibold text-xl mb-7 before:absolute before:bottom-0 before:h-0.5 before:w-full before:bg-blue-500">
-        <span className="text-white">I</span>{" "+text}
-      </h2>
+      <h1 className="relative text-blue-500 font-semibold text-4xl mb-8 before:absolute before:bottom-0 before:h-0.5 before:w-full before:bg-blue-500">
+        <span className="text-white">I</span>
+        {" " + text}
+      </h1>
     </div>
   );
 };

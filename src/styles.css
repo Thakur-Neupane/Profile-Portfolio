@@ -31,26 +31,3 @@ html {
   font-family: "La Belle Aurore", cursive;
   color: #3b82f6;
 }
-
-.skill {
-  background: none; /* Removes any background */
-}
-
-.marquee {
-  overflow: hidden;
-  position: relative;
-}
-
-.marquee-content {
-  display: flex;
-  animation: marquee 20s linear infinite;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
