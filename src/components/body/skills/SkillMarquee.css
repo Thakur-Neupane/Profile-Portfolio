@@ -1,0 +1,56 @@
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee {
+  display: flex;
+  animation: marquee 40s linear infinite; /* Adjust speed */
+  width: calc(200%); /* Double the width for seamless scrolling */
+}
+
+.skill--box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px; /* Fixed width */
+  height: 120px; /* Fixed height */
+  margin: 0 10px; /* Margin between skill boxes */
+  font-size: 2rem; /* Icon size */
+}
+
+.skill--box:hover {
+  transform: scale(1.1); /* Slight hover effect */
+}
+
+/* Responsive adjustments */
+@media (min-width: 1200px) {
+  .skill--box {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 992px) {
+  .skill--box {
+    width: 100px; /* Smaller size for medium screens */
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skill--box {
+    width: 80px; /* Even smaller size for small screens */
+    height: 80px;
+  }
+}

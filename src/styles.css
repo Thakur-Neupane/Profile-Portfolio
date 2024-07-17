@@ -1,0 +1,56 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+#root {
+  overflow: hidden;
+  position: relative;
+}
+html {
+  scroll-behavior: smooth;
+}
+.html-Tags::before {
+  content: "<html>";
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  opacity: 0.7;
+  font-family: "La Belle Aurore", cursive;
+  color: #3b82f6;
+}
+.html-Tags::after {
+  content: "<html/>";
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  opacity: 0.7;
+  font-family: "La Belle Aurore", cursive;
+  color: #3b82f6;
+}
+
+.skill {
+  background: none; /* Removes any background */
+}
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
