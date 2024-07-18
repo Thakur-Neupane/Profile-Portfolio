@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import sendEmail from "./fetchingDataMessage";
+import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-function messageForm() {
+function MessageForm() {
   const [senderName, setSenderName] = useState("");
   const [senderEmail, setSenderEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  // Accessing environment variables
+  const YOUR_SERVICE_ID = process.env.REACT_APP_YOUR_SERVICE_ID;
+  const YOUR_TEMPLATE_ID = process.env.REACT_APP_YOUR_TEMPLATE_ID;
+  const YOUR_USER_ID = process.env.REACT_APP_YOUR_USER_ID;
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (!senderName || !senderEmail || !message) {
-      // Display an error message and return without sending the email
       toast.error("Please enter your name, email, and message.", {
         position: "bottom-right",
         autoClose: 3000,
@@ -20,15 +23,16 @@ function messageForm() {
       return;
     }
 
-    const data = {
-      senderName: senderName,
-      senderEmail: senderEmail,
-      recipientEmail: "thakur.neupane.neupane@gmail.com",
+    const templateParams = {
+      from_name: senderName,
+      from_email: senderEmail,
+      to_email: "thakur.neupane.neupane@gmail.com",
       subject: "New message from your Website",
-      content: message,
+      message: message,
     };
 
-    sendEmail(data)
+    emailjs
+      .send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, templateParams, YOUR_USER_ID)
       .then((response) => {
         console.log("Email sent successfully:", response);
         toast.success("Your message was sent successfully! ✅", {
@@ -40,8 +44,8 @@ function messageForm() {
         setMessage("");
       })
       .catch((error) => {
-        console.error("Error Try Again later ❌", error);
-        toast.error("Error sending email ❌", {
+        console.error("Error sending email:", error);
+        toast.error("Error sending email. Please try again later. ❌", {
           position: "bottom-right",
           autoClose: 3000,
         });
@@ -51,8 +55,6 @@ function messageForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      data-aos="fade-left"
-      action=""
       className="md:w-2/4 flex flex-col items-start text-white opacity-90 font-light text-sm gap-y-3"
     >
       <label htmlFor="name">Your Name</label>
@@ -82,13 +84,13 @@ function messageForm() {
       ></textarea>
       <button
         type="submit"
-        className="bg-white bg-opacity-90 py-2 px-7 text-black font-medium rounded-sm
-      duration-300 hover:bg-blue-500 hover:text-white hover:opacity-90 active:scale-90"
+        className="bg-white bg-opacity-90 py-2 px-7 text-black font-medium rounded-sm duration-300 hover:bg-blue-500 hover:text-white hover:opacity-90 active:scale-90"
       >
         Send
       </button>
+      <ToastContainer />
     </form>
   );
 }
 
-export default messageForm;
+export default MessageForm;
