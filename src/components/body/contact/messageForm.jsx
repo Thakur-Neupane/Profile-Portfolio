@@ -10,7 +10,7 @@ function messageForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+
     if (!senderName || !senderEmail || !message) {
       // Display an error message and return without sending the email
       toast.error("Please enter your name, email, and message.", {
@@ -19,15 +19,15 @@ function messageForm() {
       });
       return;
     }
-  
+
     const data = {
       senderName: senderName,
       senderEmail: senderEmail,
-      recipientEmail: "rovicdelrosario01@gmail.com",
-      subject: "New message from your website",
+      recipientEmail: "thakur.neupane.neupane@gmail.com",
+      subject: "New message from your Website",
       content: message,
     };
-  
+
     sendEmail(data)
       .then((response) => {
         console.log("Email sent successfully:", response);
