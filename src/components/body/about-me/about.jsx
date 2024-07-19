@@ -31,7 +31,7 @@ function AboutMe() {
         <div className="flex flex-col gap-5 text-white opacity-90 md:w-4/6">
           <div data-aos="fade-right">
             <p className="relative">
-              Hi, I'm <span className="text-blue-500">Rovic</span>, a{" "}
+              Hi, I'm <span className="text-blue-500">Thakur</span>, a{" "}
               <span>Web Developer</span> with a passion for creating fully
               functional websites. Although I'm new to this field, I'm excited
               to learn and grow in order to achieve my goals.

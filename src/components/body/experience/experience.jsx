@@ -1,5 +1,5 @@
 import React from "react";
-import digeco from "../../../image/digeco.jpg";
+import RebbTechPhoto from "../../../image/rebb-tech.jpg";
 import {
   AnimatedLetters,
   useAnimatedLetters,
@@ -8,16 +8,24 @@ import {
 const Experience = () => {
   const { letterClass, isHovering, handleMouseEnter, handleMouseLeave } =
     useAnimatedLetters();
+
   const work = ["W", "o", "r", "k"];
+
   const workExp = [
     {
-      icon: digeco,
+      icon: RebbTechPhoto,
       companyName: "Rebb-Tech",
       startDate: "05-02-2024",
       endDate: "Present",
       position: "Web developer / Full Stack dev",
-      description: `I began my career at Rebb-Tech this February as a full stack developer specializing in the MERN stack. Rebb-Tech is a dynamic startup where we innovate and develop a diverse range of products, including outsourced and in-house applications, web apps, mobile apps, and websites. During my tenure here, I have significantly expanded my skills across the entire MERN stack. I am proficient in designing and implementing scalable backend solutions using Node.js and Express.js, managing databases with MongoDB, and creating dynamic and responsive front-end interfaces with React.js. Additionally, I have gained experience in integrating AI technologies to enhance user experiences and optimize system performance. My time at Rebb-Tech has not only honed my technical skills but also strengthened my ability to collaborate effectively within cross-functional teams, contributing to our success in delivering high-quality products to our clients.
-`,
+      description: `
+        I began my career at Rebb-Tech in February 2024 as a full stack developer specializing in the MERN stack. Working in Rebb Tech as a Full Stack Developer, I expanded my skills in designing and implementing dynamic webs contributing to the delivery of high quality products. Skills I generate here in Rebb tech are:
+        - Backend: Express JS, Node JS, Postman, ThunderClient, Working with JWT tokens, Cookies, different middlewares such as Joi, auth, Uploading photos by cloudinary plus multer, email by Nodemailer, PassportJs, Stripe Payment, mongoose, morgan and MongoDb.
+        
+        - Frontend: Html5, CSS3, SCSS, JavaScript, TypeScript, Bootstrap, Tailwind, React, Redux, UI/UX design, React-router-dom, Toastify, Axios, React-icons, GoogleFonts, FontAwesome, etc.
+        
+        - Others: Working with npm and yarn, Trello, Jira, AgileMethodoloy, AWS, Docker, Render, Cyclic and Vercel, Git and Github, Slack, Teamwork.
+       `,
     },
   ];
 
@@ -39,7 +47,7 @@ const Experience = () => {
           <div data-aos="fade-right" className="h-0.5 bg-blue-500"></div>
         </h1>
       </div>
-      <div className="flex flex-col ">
+      <div className="flex flex-col">
         {workExp.map((experience, index) => (
           <div
             key={index}
@@ -47,7 +55,12 @@ const Experience = () => {
           >
             <div className="flex justify-between items-center text-white">
               <div className="flex items-center gap-2 my-3">
-                <img src={digeco} alt="" width={40} className="rounded-full" />
+                <img
+                  src={experience.icon}
+                  alt=""
+                  width={40}
+                  className="rounded-full"
+                />
                 <p className="text-xl">{experience.companyName}</p>
               </div>
               <p className="text-sm opacity-50">
@@ -60,7 +73,43 @@ const Experience = () => {
               </p>
             </div>
             <div className="py-5">
-              <p className="text-white text-sm">{experience.description}</p>
+              <h2 className="text-white text-sm mb-2">Overview:</h2>
+              <div className="text-white text-sm mb-4">
+                {experience.description
+                  .split("\n\n")
+                  .map((paragraph, index) => (
+                    <div key={index}>
+                      {paragraph.startsWith("- Backend:") && (
+                        <p>
+                          <span className="text-yellow-400 text-3xl">
+                            Backend:
+                          </span>{" "}
+                          {paragraph.replace("- Backend:", "").trim()}
+                        </p>
+                      )}
+                      {paragraph.startsWith("- Frontend:") && (
+                        <p>
+                          <span className="text-yellow-400 text-3xl">
+                            Frontend:
+                          </span>{" "}
+                          {paragraph.replace("- Frontend:", "").trim()}
+                        </p>
+                      )}
+                      {paragraph.startsWith("- Others:") && (
+                        <p>
+                          <span className="text-yellow-400 text-3xl">
+                            Others:
+                          </span>{" "}
+                          {paragraph.replace("- Others:", "").trim()}
+                        </p>
+                      )}
+                      {!paragraph.startsWith("- ") &&
+                        !paragraph.trim().startsWith("I began") && (
+                          <p>{paragraph.trim()}</p>
+                        )}
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
         ))}
