@@ -8,9 +8,9 @@ function MessageForm() {
   const [message, setMessage] = useState("");
 
   // Accessing environment variables
-  const YOUR_SERVICE_ID = process.env.REACT_APP_YOUR_SERVICE_ID;
-  const YOUR_TEMPLATE_ID = process.env.REACT_APP_YOUR_TEMPLATE_ID;
-  const YOUR_USER_ID = process.env.REACT_APP_YOUR_USER_ID;
+  // const YOUR_SERVICE_ID = process.env.REACT_APP_YOUR_SERVICE_ID;
+  // const YOUR_TEMPLATE_ID = process.env.REACT_APP_YOUR_TEMPLATE_ID;
+  // const YOUR_USER_ID = process.env.REACT_APP_YOUR_USER_ID;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,7 +32,12 @@ function MessageForm() {
     };
 
     emailjs
-      .send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, templateParams, YOUR_USER_ID)
+      .send(
+        process.env.REACT_APP_YOUR_SERVICE_ID,
+        process.env.REACT_APP_YOUR_TEMPLATE_ID,
+        templateParams,
+        process.env.REACT_APP_YOUR_USER_ID
+      )
       .then((response) => {
         console.log("Email sent successfully:", response);
         toast.success("Your message was sent successfully! ✅", {
