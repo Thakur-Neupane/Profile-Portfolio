@@ -19,13 +19,14 @@ const Experience = () => {
       endDate: "Present",
       position: "Web developer / Full Stack dev",
       description: `
-        I began my career at Rebb-Tech in February 2024 as a full stack developer specializing in the MERN stack. Working in Rebb Tech as a Full Stack Developer, I expanded my skills in designing and implementing dynamic webs contributing to the delivery of high quality products. Skills I generate here in Rebb tech are:
+        I began my career at Rebb-Tech in February 2024 as a full stack developer specializing in the MERN stack. Working in Rebb Tech as a Full Stack Developer, I expanded my skills in designing and implementing dynamic webs contributing to the delivery of high quality products.
+        
         - Backend: Express JS, Node JS, Postman, ThunderClient, Working with JWT tokens, Cookies, different middlewares such as Joi, auth, Uploading photos by cloudinary plus multer, email by Nodemailer, PassportJs, Stripe Payment, mongoose, morgan and MongoDb.
         
         - Frontend: Html5, CSS3, SCSS, JavaScript, TypeScript, Bootstrap, Tailwind, React, Redux, UI/UX design, React-router-dom, Toastify, Axios, React-icons, GoogleFonts, FontAwesome, etc.
         
         - Others: Working with npm and yarn, Trello, Jira, AgileMethodoloy, AWS, Docker, Render, Cyclic and Vercel, Git and Github, Slack, Teamwork.
-       `,
+      `,
     },
   ];
 
@@ -63,52 +64,52 @@ const Experience = () => {
                 />
                 <p className="text-xl">{experience.companyName}</p>
               </div>
-              <p className="text-sm opacity-50">
+              <p className="text-lg text-blue-500">
                 {experience.startDate} - {experience.endDate}
               </p>
             </div>
             <div>
-              <p className="text-sm text-white opacity-50">
-                {experience.position}
-              </p>
+              <p className="text-3xl text-blue-500">{experience.position}</p>
             </div>
             <div className="py-5">
-              <h2 className="text-white text-sm mb-2">Overview:</h2>
-              <div className="text-white text-sm mb-4">
-                {experience.description
-                  .split("\n\n")
-                  .map((paragraph, index) => (
-                    <div key={index}>
-                      {paragraph.startsWith("- Backend:") && (
-                        <p>
-                          <span className="text-yellow-400 text-3xl">
-                            Backend:
-                          </span>{" "}
-                          {paragraph.replace("- Backend:", "").trim()}
-                        </p>
-                      )}
-                      {paragraph.startsWith("- Frontend:") && (
-                        <p>
-                          <span className="text-yellow-400 text-3xl">
-                            Frontend:
-                          </span>{" "}
-                          {paragraph.replace("- Frontend:", "").trim()}
-                        </p>
-                      )}
-                      {paragraph.startsWith("- Others:") && (
-                        <p>
-                          <span className="text-yellow-400 text-3xl">
-                            Others:
-                          </span>{" "}
-                          {paragraph.replace("- Others:", "").trim()}
-                        </p>
-                      )}
-                      {!paragraph.startsWith("- ") &&
-                        !paragraph.trim().startsWith("I began") && (
-                          <p>{paragraph.trim()}</p>
-                        )}
-                    </div>
-                  ))}
+              <h2 className="text-yellow-400 text-2xl mb-2">Overview:</h2>
+              <div className="text-white mb-4">
+                {experience.description.split("- ").map((section, index) => {
+                  if (section.trim().startsWith("Backend:")) {
+                    return (
+                      <p key={index}>
+                        <span className="text-yellow-400 text-2xl mb-2 block">
+                          Backend:
+                        </span>{" "}
+                        {section.replace("Backend:", "").trim()}
+                      </p>
+                    );
+                  } else if (section.trim().startsWith("Frontend:")) {
+                    return (
+                      <p key={index}>
+                        <span className="text-yellow-400 text-2xl mb-2 block">
+                          Frontend:
+                        </span>{" "}
+                        {section.replace("Frontend:", "").trim()}
+                      </p>
+                    );
+                  } else if (section.trim().startsWith("Others:")) {
+                    return (
+                      <p key={index}>
+                        <span className="text-yellow-400 text-2xl mb-2 block">
+                          Others:
+                        </span>{" "}
+                        {section.replace("Others:", "").trim()}
+                      </p>
+                    );
+                  } else {
+                    return (
+                      <p key={index} className="text-white">
+                        {section.trim()}
+                      </p>
+                    );
+                  }
+                })}
               </div>
             </div>
           </div>
