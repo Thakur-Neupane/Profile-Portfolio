@@ -1,15 +1,16 @@
 import React from "react";
-import { Link } from "react-scroll";
+
 import thakurImg from "../../../image/ProfilePic.jpg";
 import {
   useAnimatedLetters,
   AnimatedLetters,
 } from "../../animation/AnimatedLetter";
 import "../body.css";
+
 function AboutMe() {
   const { letterClass, isHovering, handleMouseEnter, handleMouseLeave } =
     useAnimatedLetters();
-  const aboutUs = ["A", "b", "o", "u", "t"];
+  const aboutUs = ["A", "b", "o", "u", "t", "", "M", "e"];
 
   return (
     <div id="about" className="max-w-7xl h-full mx-auto py-20 px-8 relative">
@@ -23,59 +24,89 @@ function AboutMe() {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           />
-          <div data-aos="fade-right" className="h-0.5 bg-blue-500"></div>
+          <div
+            data-aos="fade-right"
+            className="h-0.5 bg-blue-500 inline-block ml-2 align-middle"
+          ></div>
         </h1>
       </div>
 
-      <div className="flex flex-col gap-3 md:flex-row justify-between items-center">
-        <div className="flex flex-col gap-5 text-white opacity-90 md:w-4/6">
-          <div data-aos="fade-right">
-            <p className="relative">
-              Hi, I'm <span className="text-blue-500">Thakur</span>, a{" "}
-              <span>Web Developer</span> with a passion for creating fully
-              functional websites. Although I'm new to this field, I'm excited
-              to learn and grow in order to achieve my goals.
+      <div className="flex flex-col md:flex-row items-start">
+        <div className="md:w-1/2 mb-8 md:mb-0 text-white">
+          <div className="about-content">
+            <div className="about-content flex items-center mb-4">
+              <div className="w-1/3 px-1 text-center">
+                <div className="about-card">
+                  <i className="fas fa-award about-icon text-2xl text-blue-500"></i>
+                  <h5 className="text-2xl font-bold text-blue-500 leading-none mb-1">
+                    IT
+                  </h5>
+                  <small className="block text-blue-500">Graduate</small>
+                </div>
+              </div>
+              <div className="w-1/3 px-1 text-center">
+                <div className="about-card">
+                  <i className="fas fa-code about-icon text-2xl text-blue-500"></i>
+                  <h5 className="text-2xl font-bold text-blue-500 leading-none mb-1">
+                    Experience
+                  </h5>
+                  <small className="block text-blue-500">1+ Yrs Coding</small>
+                </div>
+              </div>
+              <div className="w-1/3 px-1 text-center">
+                <div className="about-card">
+                  <i className="fas fa-diagram-project about-icon text-2xl text-blue-500"></i>
+                  <h5 className="text-2xl font-bold text-blue-500 leading-none mb-1">
+                    Projects
+                  </h5>
+                  <small className="block text-blue-500">10+</small>
+                </div>
+              </div>
+            </div>
+
+            <p className="mb-4">
+              I am{" "}
+              <a href="#" className="text-blue-500">
+                Thakur Neupane
+              </a>
+              , a recent graduate specializing in the MERN stack for web
+              development. I'm passionate about creating effective and
+              user-friendly applications using MongoDB, Express.js, React.js,
+              and Node.js. During my studies, I enjoyed tackling coding
+              challenges and projects that enhanced my skills in problem-solving
+              and software development.
             </p>
-          </div>
-          <div data-aos="fade-right">
-            <p className="relative">
-              My long-term goal is to become a full-stack web developer and
-              contribute to the creation of innovative and user-friendly
-              websites. In the short term, I aim to gain more experience by
-              working on challenging projects and collaborating with other
-              developers. I believe that continuous learning and improvement are
-              key to becoming a successful web developer.
+
+            <p className="mb-4">
+              I excel in collaborative environments and am eager to contribute
+              to real-world projects using my skills. Learning and adapting to
+              new technologies is essential in this fast-paced industry, and I'm
+              motivated to stay updated. With a strong understanding of the MERN
+              stack, I'm enthusiastic about starting my career and making a
+              positive impact by creating innovative software solutions.
             </p>
-          </div>
-          <div data-aos="fade-right">
-            <p className="relative">
-              I have gained some experience working on projects while I was
-              studying, which you can see{" "}
-              <Link to="projects" className="text-blue-500 underline">
-                here
-              </Link>
-              . Through these projects, I was able to learn more about web
-              development. I'm eager to continue expanding my skills in
-              programming and take on new challenges.
-            </p>
-          </div>
-          <div data-aos="fade-right">
-            <p className="relative">
-              Thanks for visiting my website. I'm eager to connect with you and
-              explore how I can contribute to your organization.
-            </p>
+
+            <div className="flex justify-center mb-4">
+              {" "}
+              <a href="#contact">
+                <button className="vvd bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <span>Let’s Connect</span>
+                </button>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div
-          data-aos="fade-left"
-          className="max-w-xs flex justify-center rounded-xl bg-blue-600 bg-opacity-70 overflow-hidden"
-        >
-          <img
-            className="brightness-110 contrast-125 object-cover object-center w-full h-full"
-            src={thakurImg}
-            alt="me"
-          />
+        <div className="md:w-1/2 pl-4 md:pl-0 flex justify-center align-baseline">
+          {" "}
+          <div className="about-me">
+            <img
+              src={thakurImg}
+              alt="img"
+              className="rounded-full w-64 md:w-80 self-end mb-4 md:mb-0"
+              style={{ marginLeft: "5rem" }}
+            />
+          </div>
         </div>
       </div>
     </div>

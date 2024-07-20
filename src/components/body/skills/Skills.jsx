@@ -82,7 +82,7 @@ function Skills() {
               additionalTransfrom={0}
               arrows={false}
               autoPlay={true}
-              autoPlaySpeed={500} // Adjust speed as needed
+              autoPlaySpeed={800} // Adjust speed as needed
               centerMode={false}
               infinite
               responsive={responsive}

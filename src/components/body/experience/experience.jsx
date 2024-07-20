@@ -9,7 +9,7 @@ const Experience = () => {
   const { letterClass, isHovering, handleMouseEnter, handleMouseLeave } =
     useAnimatedLetters();
 
-  const work = ["W", "o", "r", "k"];
+  const work = ["E", "x", "p", "e", "r", "i", "e", "n", "c", "e"];
 
   const workExp = [
     {
@@ -19,7 +19,7 @@ const Experience = () => {
       endDate: "Present",
       position: "Web developer / Full Stack dev",
       description: `
-        I began my career at Rebb-Tech in February 2024 as a full stack developer specializing in the MERN stack. Working in Rebb Tech as a Full Stack Developer, I expanded my skills in designing and implementing dynamic webs contributing to the delivery of high quality products.
+        At Rebb-Tech, starting in February 2024 as a full stack developer specializing in the MERN stack, I've acquired essential skills in designing and implementing dynamic web applications, crucial for delivering high-quality products. These are the skills that have been learned and refined through my experiences at Rebb-Tech.
         
         - Backend: Express JS, Node JS, Postman, ThunderClient, Working with JWT tokens, Cookies, different middlewares such as Joi, auth, Uploading photos by cloudinary plus multer, email by Nodemailer, PassportJs, Stripe Payment, mongoose, morgan and MongoDb.
         
