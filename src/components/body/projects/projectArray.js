@@ -1,26 +1,27 @@
-import projectGraphiscore from "../../../image/graphiscoreProject.png";
+import Calculator from "../../../image/Calculator.png";
 import axieproject from "../../../image/axieproject.png";
 import sneakers from "../../../image/sneakers.png";
 import blogify from "../../../image/blogify.png";
 import grocery from "../../../image/grocery.png";
-import lawportfolio from "../../../image/law-portfolio.jpg"
+import lawportfolio from "../../../image/law-portfolio.jpg";
 
 const projectArray = [
   {
     projectColor: "before:bg-green-800",
-    projectUrl: "https://graphiscore-rate.cyclic.app/",
-    projectImg: projectGraphiscore,
-    projectTitle: "Graphiscore",
+    projectUrl: "https://react-prank-calculator-practice.vercel.app/",
+    projectImg: Calculator,
+    projectTitle: "Prank Calculator",
+    SourceCode:
+      "https://github.com/Thakur-Neupane/React-prank-calculator-practice-",
     projectDcrp:
       "This web application allows users to rate and review different graphics processing units (GPUs) based on their personal experiences. Users can rate GPUs on a scale of 1-5 and leave a detailed review with their thoughts and opinions. Other users can read and filter through reviews to help inform their own purchasing decisions.",
     projectLang: [
       "HTML",
       "CSS",
+      "Bootstrap",
       "Javascript",
-      "Node.Js",
-      "Express",
-      "EJS",
-      "MongoDb",
+      "ReactJS",
+      "NodeJS",
     ],
   },
   {
